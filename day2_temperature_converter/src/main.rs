@@ -7,7 +7,9 @@ fn main() {
     println!("Please select an option (1 or 2):");
 
     let mut choice = String::new();
-    io::stdin().read_line(&mut choice).expect("Failed to read input");
+    io::stdin()
+        .read_line(&mut choice)
+        .expect("Failed to read input");
 
     let choice: u32 = match choice.trim().parse() {
         Ok(expr) => expr,
@@ -19,9 +21,9 @@ fn main() {
 
     if choice == 1 {
         celsius_to_fahrenheit();
-    }else if choice == 2 {
+    } else if choice == 2 {
         fahrenheit_to_celsius();
-    }else{
+    } else {
         println!("Invalid choice. Please select 1 or 2.");
     }
 }
@@ -29,7 +31,9 @@ fn main() {
 fn celsius_to_fahrenheit() {
     println!("Please enter Temperature in celsius:");
     let mut temp = String::new();
-    io::stdin().read_line(&mut temp).expect("Failed to read input");
+    io::stdin()
+        .read_line(&mut temp)
+        .expect("Failed to read input");
 
     let temp: f64 = match temp.trim().parse() {
         Ok(expr) => expr,
@@ -46,7 +50,9 @@ fn celsius_to_fahrenheit() {
 fn fahrenheit_to_celsius() {
     println!("Please enter Temperature in fahrenheit:");
     let mut temp = String::new();
-    io::stdin().read_line(&mut temp).expect("Failed to read input");
+    io::stdin()
+        .read_line(&mut temp)
+        .expect("Failed to read input");
 
     let temp: f64 = match temp.trim().parse() {
         Ok(expr) => expr,

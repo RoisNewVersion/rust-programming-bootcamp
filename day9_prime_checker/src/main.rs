@@ -27,7 +27,9 @@ fn main() {
 // Read user input and attemps to parse it as u32
 fn get_input_as_u32() -> Option<u32> {
     let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("Failed to read input");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read input");
     match input.trim().parse::<u32>() {
         Ok(result) => Some(result),
         Err(_) => None,
@@ -46,7 +48,7 @@ fn is_prime(n: u32) -> bool {
         return false; // Eliminate even number greate than 2
     }
 
-    let limit = (n as f64).sqrt() as u32 +1;
+    let limit = (n as f64).sqrt() as u32 + 1;
     for i in 3..limit {
         if n % i == 0 {
             return false;

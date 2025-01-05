@@ -1,6 +1,5 @@
 use std::io;
 
-
 fn main() {
     println!("Simple calculator!");
     println!("Available operations is: +, -, *, /");
@@ -19,10 +18,10 @@ fn main() {
         return;
     }
 
-    // 
+    //
     let num1: f64 = match tokens[0].parse() {
         Ok(result) => result,
-        Err(_)=>{
+        Err(_) => {
             println!("Invalid first number.");
             return;
         }
@@ -32,18 +31,18 @@ fn main() {
 
     let num2: f64 = match tokens[2].parse() {
         Ok(result) => result,
-        Err(_)=>{
+        Err(_) => {
             println!("Invalid second number.");
             return;
         }
     };
 
     let result = match operator {
-        "+"=>add(num1,num2),
-        "-"=>subtract(num1, num2),
-        "*"=>multiply(num1, num2),
-        "/"=>divide(num1,num2),
-        _=>{
+        "+" => add(num1, num2),
+        "-" => subtract(num1, num2),
+        "*" => multiply(num1, num2),
+        "/" => divide(num1, num2),
+        _ => {
             println!("Invalid operator. Use +, -, *, or /.");
             return;
         }
@@ -53,15 +52,15 @@ fn main() {
 }
 
 fn add(a: f64, b: f64) -> f64 {
-    a+b
+    a + b
 }
 
 fn subtract(a: f64, b: f64) -> f64 {
-    a-b
+    a - b
 }
 
 fn multiply(a: f64, b: f64) -> f64 {
-    a*b
+    a * b
 }
 
 fn divide(a: f64, b: f64) -> f64 {
@@ -69,5 +68,5 @@ fn divide(a: f64, b: f64) -> f64 {
         println!("Division by zero is not allowed!");
         std::process::exit(1);
     }
-    a/b
+    a / b
 }

@@ -5,18 +5,20 @@ fn main() {
     println!("Enter a string to check if it is a polindrome:");
 
     let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("Failed to read input");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read input");
 
     let cleaned_input = cleaned_string(&input);
 
-    if cleaned_input.is_empty(){
+    if cleaned_input.is_empty() {
         println!("Please enter a valid non-empty string");
         return;
     }
 
     if is_polindrome(&cleaned_input) {
         println!("The '{}' is a polindrome!", input.trim());
-    }else{
+    } else {
         println!("The '{}' is not a polindrome!", input.trim());
     }
 }

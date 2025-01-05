@@ -24,7 +24,9 @@ fn main() {
 // Reads user input and attemps to parse it as u32
 fn get_input_as_u32() -> Option<u32> {
     let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("Failed to read input");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read input");
 
     match input.trim().parse::<u32>() {
         Ok(val) => Some(val),
@@ -43,7 +45,7 @@ fn generate_fibonacci(n: u32) -> Vec<u64> {
     }
 
     for i in 2..n {
-        let next = sequence[i as usize - 1] + sequence[i as usize -2];
+        let next = sequence[i as usize - 1] + sequence[i as usize - 2];
         sequence.push(next);
     }
 

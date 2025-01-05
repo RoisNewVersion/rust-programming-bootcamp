@@ -41,7 +41,9 @@ fn main() {
 
 fn get_input_as_f64() -> Option<f64> {
     let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("Failed to read value");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read value");
     match input.trim().parse::<f64>() {
         Ok(result) => Some(result),
         Err(_) => None,
