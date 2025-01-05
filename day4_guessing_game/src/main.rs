@@ -1,11 +1,11 @@
-use std::io;
 use rand::Rng;
 use std::cmp::Ordering;
+use std::io;
 
 fn main() {
     println!("Welcome to guessing game!");
     println!("I'm thinking of a number between 1 and 100. Can you guess it?");
-    
+
     // Generate a random nummber between 1 and 100.
     let secret_number = rand::thread_rng().gen_range(1..=100);
 
@@ -13,9 +13,11 @@ fn main() {
         println!("Please input your guess:");
 
         let mut guess = String::new();
-        io::stdin().read_line(&mut guess).expect("Failed to read input");
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read input");
 
-        let guess: u32 = match guess.trim().parse(){
+        let guess: u32 = match guess.trim().parse() {
             Ok(result) => result,
             Err(_) => {
                 println!("Please enter valid number!");
@@ -32,6 +34,5 @@ fn main() {
                 break;
             }
         }
-
     }
 }
